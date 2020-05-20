@@ -12,6 +12,7 @@
       <div class="col-12">  
         <h2>{{$post->title}}</h2>
         <small>Scritto da {{$post->author}}</small>
+        {{-- <small>Slug: {{$post->slug}}</small> --}}
         <div>
           {{$post->body}}
         </div>

@@ -47,6 +47,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        //$data['slug'] = Str::slug($data['title'] , '-') . rand(1,100); //genera uno slug automatico
+
         $validator = validator::make($data, [
             'title' => 'required|string|max:150',
             'body' => 'required',
@@ -82,6 +84,20 @@ class PostController extends Controller
         }
         return view('posts.show', compact('post'));
     }
+
+    
+     /* // se uso lo slug come filtro per scegliere il post:  
+         public function show($slug)
+         {   
+             $post = Post::where('slug', $slug)->first();
+        
+             //se non trovo articolo mando pagina 404
+             if(empty($post)){
+                 abort('404');
+             }
+        
+             return view('posts.show', compact('post'));
+         } */
 
     /**
      * Show the form for editing the specified resource.

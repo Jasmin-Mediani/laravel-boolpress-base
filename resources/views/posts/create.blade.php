@@ -43,6 +43,13 @@
       <label for="published">Pubblicato</label>
       <input type="radio" id="published" name="published" value="1">
     </div>
+
+ {{-- devo lasciarlo per forza, perché lo slug a quanto pare l'ho settato come obbligatorio con la creazione del db e non può essere null--}}
+    <div>
+        <label for="title">slug</label>
+        <input type="text" placeholder="Inserisci lo slug" name="slug">
+    </div>
+
     <div>
       <input type="submit" value="Salva">
     </div>
