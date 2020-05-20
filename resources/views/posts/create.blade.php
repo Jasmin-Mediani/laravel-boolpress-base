@@ -34,10 +34,6 @@
       <input type="text" placeholder="Inserisci il nome dell'autore" name="author">
     </div>
     <div>
-      <label for="title">Location</label>
-      <input type="text" placeholder="La tua posizione" name="location">
-    </div>
-    <div>
       <label for="title">Immagine</label>
       <input type="text" placeholder="Inserisci il path" name="img">
     </div>
