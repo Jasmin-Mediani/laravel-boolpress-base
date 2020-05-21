@@ -1,4 +1,4 @@
-<ul>
+{{-- <ul>
     @foreach ($posts as $post)
    
         <li> 
@@ -9,11 +9,87 @@
             <p>
                 {{$post->body}}
             </p>
-            <small>{{$post->author}}</small>
+            <small>{{$post->author}}</small> --}}
             {{-- devo metterle per forza lo slug perché sembra che sia obbligatorio per come l'ho settato nel db... non può essere null  --}}
-            <small>{{$post->slug}}</small>
+            {{-- <small>{{$post->slug}}</small>
             <br><br><br>
         </li>
 
     @endforeach
-</ul>
+</ul> --}}
+
+
+{{-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{asset('css/app.css')}}">
+  <title>Show</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">  
+        <table class="table">
+          <thead>
+            <th>Titolo</th>
+            <th>Autore</th>
+          </thead>
+          <tbody>
+            @foreach ($posts as $post)
+                <tr>
+                <td><a href="{{route('posts.show', $post->slug)}}">{{$post->title}}</a></td>
+                  <td>Scritto da {{$post->author}}</td>
+                </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html> --}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{asset('css/app.css')}}">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">  
+        <table class="table">
+          <thead>
+            <th>Titolo</th>
+            <th>Autore</th>
+            <th colspan="3">Azioni</th>
+          </thead>
+          <tbody>
+            @foreach ($posts as $post)
+                <tr>
+                  <td>{{$post->title}}</td>
+                  <td>Scritto da {{$post->author}}</td>
+                  <td><a href="{{route('posts.edit', $post->id)}}">Modifica</a></td>
+                  <td><a href="{{route('posts.show', $post->slug)}}">Visualizza</a></td>
+                <td><form action="{{route('posts.destroy', $post->id)}}" method="POST">
+                  @method('DELETE')
+                  @csrf
+                  <button type="submit">Elimina</button>
+                </form></td>
+                </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

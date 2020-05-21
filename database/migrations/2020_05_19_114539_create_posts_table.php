@@ -17,10 +17,11 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->string('title', 100);
             $table->string('author', 100);
-            $table->text('img');
+            $table->string('img')->default('https://picsum.photos/200/300');
             $table->text('body');
-            $table->string('slug');
-            $table->boolean('published');
+            $table->string('slug')->unique();
+            $table->string('location')->nullable();
+            $table->boolean('published')->default(0);
             $table->timestamps();
         });
     }
