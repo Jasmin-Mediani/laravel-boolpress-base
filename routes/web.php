@@ -13,35 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Route::get('/', function () {
-     return view('welcome');
- });
- */
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Route::get('/ciao', function () {
-//     return view('index');
-// });
+Auth::routes();
 
-
-
-Route::get('/posts/published', 'PostController@indexPublished')->name('posts.index.published');
-
-
-///////   ?????? //////////////
-
-Route::get('/', 'PostController@index')->name('posts.index');
-Route::resource('posts', 'PostController');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::prefix('admin')
 ->namespace('Admin')
 ->name('admin.')
 ->middleware('auth')
-->group(function (){
-    Route::resource('users' , 'UserController');
+->group(function() {
+    Route::resource('users', 'UserController');
 });
 
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('articles', 'ArticleController@index')->name('articles.index');
