@@ -49,7 +49,7 @@ class PostController extends Controller
     {
         $data = $request->all();
         $now = Carbon::now()->format('Y-m-d-H-i-s');
-        $data['slug'] = Str::slug($data['title'] , '-') . $now; //genera uno slug automatico prendendo l'ora con Carbon dalla variabile nella riga sopra.
+        $data['slug'] = Str::slug($data['title'] , '-') . $now; //genera uno slug prendendo l'ora con Carbon dalla variabile nella riga sopra.
 
         $validator = validator::make($data, [
             'title' => 'required|string|max:150',
@@ -85,6 +85,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     
     // public function show($id)
     // {
     //     $post = Post::find($id);
